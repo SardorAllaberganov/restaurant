@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$mainColor: #FD6D24;
+a{
+  text-decoration: none!important;
+}
+%horizontalCentered{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+%centered{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+%verticalCentered{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+html,body{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0;
+}
+.navbar{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  .myNavUl{
+    padding-right: 20px;
+  }
+  .nav-item{
+    text-transform: capitalize;
+    padding: 15px 15px;
+    border-top: 3px solid transparent;
+    .nav-link{
+      color: #333333;
+      font-size: 15px;
+      transition: all .2s;
+      &:hover{
+        color: $mainColor;
+      }
+    }
+  }
+  &-collapse{
+    background: #fff;
+    z-index: 999;
+    
+  }
+  &-toggler{
+    width: 70px;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 15px;
+    background: $mainColor;
+    div{
+      width: 34px;
+      height: 4px;
+      background: #fff;
+      border-radius: 5px;
+      margin: 3px;
+      float: left;
+      &:first-child, &:last-child{
+        width: 20px;
+      }
+      &:last-child{
+        float: right;
+      }
+    }
+  }
+}
+.title{
+  height: 70px;
+  background: #1D191A;
+  color: #fff;
+  position: relative;
+  padding: 20px 40px 20px 60px;
+  border-bottom-right-radius: 50px;
+  a{
+    color: #fff;
+  }
+  span{
+    position: absolute;
+    background: $mainColor;
+    width: 5px;
+    height: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+    border-radius: 50%;
+  }
+}
+
+.active{
+  border-top: 3px solid $mainColor!important;
+}
+.header{
+  position: relative;
+  .social-block{
+    position: absolute;
+    bottom: 0;
+    ul{
+      margin: 12px;
+      list-style: none;
+      li{
+        display: inline;
+        margin: 0 5px;
+        a{
+          i{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #333333;
+            border-radius: 50%;
+            padding: 6px 7px;
+            color: #333333;
+            transition: all .2s;
+            &:hover{
+              color: $mainColor;
+              border-color: $mainColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-title{
+    padding: 100px;
+    &::after{
+      position: absolute;
+      bottom: 25px;
+      height: 1px;
+      content: "";
+      left: 0;
+      width: 60px;
+      background: #777;
+    }
+    h1{
+      font-weight: bold;
+      font-size: 4em;
+      color: #1F2428;
+      text-transform: capitalize
+    }
+    p{
+      margin: 30px 0;
+      color: #666;
+    }
+    .header-btn{
+      margin: 30px 0;
+      font-size: 15px;
+      padding: 10px 40px;
+      border: none;
+      outline: none;
+      background: $mainColor;
+      color: #fff;
+      border-radius: 15px 0 15px 0;
+      transition: all .2s;
+      border: 2px solid transparent;
+      span{
+        font-size: 1.5em;
+      }
+      &:hover{
+        border: 2px solid $mainColor;
+        background: none;
+        color: $mainColor;
+      }
+    }
+  }
+  &-image{
+    background: url(../images/wallpaper.jpg);
+    background-position: right;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    border-top-left-radius: 100px;
+  }
+  &-block{
+    position: relative;
+  }
+}
+.popular-foods{
+  margin-top: 80px;
+  position: relative;
+  &-title{
+    color: $mainColor;
+  }
+  &-tabs{
+    margin-top: 50px;
+  }
+  h1{
+    margin: 30px 0;
+    font-weight: bold;
+  }
+  p{
+    font-weight: bold;
+    background: "\2192";
+    @extend %verticalCentered;
+    a{
+      text-decoration: none;
+      color: #222222;
+    }
+    
+    &::before{
+      @extend %verticalCentered;
+      content: "\2192";
+      right: -40px;
+      font-size: 2em;
+      padding: 0 0 7px;
+      color: $mainColor;
+      transition: all .3s;
+      z-index: 9;
+    }
+    &::after{
+      @extend %verticalCentered;
+      content: "";
+      z-index: 8;
+      border-radius: 2px;
+      margin-left: 25px;
+      padding-bottom: 7px; 
+      width: 35px;
+      height: 28px;
+      background: #111111;
+    }
+    &:hover::before{
+      right: -45px!important;
+    }
+  }
+}
+
+// mixin media queries functions
+@mixin mediaMaxWidthWithoutOrient($mediaMaxWidth) {
+  @media only screen and (max-width: $mediaMaxWidth){
+    @content;
+  }
+}
+@mixin mediaMaxWidth($mediaMaxWidth, $orientation) {
+  @media only screen and (max-width: $mediaMaxWidth) and (orientation: $orientation) {
+    @content;
+  }
+}
+
+@mixin mediaMinWidth($mediaMinWidth, $orientation) {
+  @media only screen and (min-width: $mediaMinWidth) and (orientation: $orientation) {
+    @content;
+  }
+}
+
+@include mediaMaxWidthWithoutOrient(768px){
+  .myNavUl{
+    padding-right: 0px!important;
+  }
+  .navbar-collapse{
+    box-shadow: 0 4px 10px #ddd;
+  }
+  .navbar .nav-item{
+    padding: 5px 30px;
+  }
+  .header-title{
+    padding: 40px;
+    margin: 0 auto;
+    position: relative!important;
+    h1{
+      font-size: 2em;
+    }
+  }
+}

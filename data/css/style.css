@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+a {
+  text-decoration: none !important;
+}
+
+.popular-foods p, .popular-foods p::before, .popular-foods p::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0;
+}
+
+.navbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 70px;
+}
+
+.navbar .myNavUl {
+  padding-right: 20px;
+}
+
+.navbar .nav-item {
+  text-transform: capitalize;
+  padding: 15px 15px;
+  border-top: 3px solid transparent;
+}
+
+.navbar .nav-item .nav-link {
+  color: #333333;
+  font-size: 15px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.navbar .nav-item .nav-link:hover {
+  color: #FD6D24;
+}
+
+.navbar-collapse {
+  background: #fff;
+  z-index: 999;
+}
+
+.navbar-toggler {
+  width: 70px;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 15px;
+  background: #FD6D24;
+}
+
+.navbar-toggler div {
+  width: 34px;
+  height: 4px;
+  background: #fff;
+  border-radius: 5px;
+  margin: 3px;
+  float: left;
+}
+
+.navbar-toggler div:first-child, .navbar-toggler div:last-child {
+  width: 20px;
+}
+
+.navbar-toggler div:last-child {
+  float: right;
+}
+
+.title {
+  height: 70px;
+  background: #1D191A;
+  color: #fff;
+  position: relative;
+  padding: 20px 40px 20px 60px;
+  border-bottom-right-radius: 50px;
+}
+
+.title a {
+  color: #fff;
+}
+
+.title span {
+  position: absolute;
+  background: #FD6D24;
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 30px;
+  border-radius: 50%;
+}
+
+.active {
+  border-top: 3px solid #FD6D24 !important;
+}
+
+.header {
+  position: relative;
+}
+
+.header .social-block {
+  position: absolute;
+  bottom: 0;
+}
+
+.header .social-block ul {
+  margin: 12px;
+  list-style: none;
+}
+
+.header .social-block ul li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.header .social-block ul li a i {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  padding: 6px 7px;
+  color: #333333;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.header .social-block ul li a i:hover {
+  color: #FD6D24;
+  border-color: #FD6D24;
+}
+
+.header-title {
+  padding: 100px;
+}
+
+.header-title::after {
+  position: absolute;
+  bottom: 25px;
+  height: 1px;
+  content: "";
+  left: 0;
+  width: 60px;
+  background: #777;
+}
+
+.header-title h1 {
+  font-weight: bold;
+  font-size: 4em;
+  color: #1F2428;
+  text-transform: capitalize;
+}
+
+.header-title p {
+  margin: 30px 0;
+  color: #666;
+}
+
+.header-title .header-btn {
+  margin: 30px 0;
+  font-size: 15px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  background: #FD6D24;
+  color: #fff;
+  border-radius: 15px 0 15px 0;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  border: 2px solid transparent;
+}
+
+.header-title .header-btn span {
+  font-size: 1.5em;
+}
+
+.header-title .header-btn:hover {
+  border: 2px solid #FD6D24;
+  background: none;
+  color: #FD6D24;
+}
+
+.header-image {
+  background: url(../images/wallpaper.jpg);
+  background-position: right;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  border-top-left-radius: 100px;
+}
+
+.header-block {
+  position: relative;
+}
+
+.popular-foods {
+  margin-top: 80px;
+  position: relative;
+}
+
+.popular-foods-title {
+  color: #FD6D24;
+}
+
+.popular-foods-tabs {
+  margin-top: 50px;
+}
+
+.popular-foods h1 {
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+.popular-foods p {
+  font-weight: bold;
+  background: "\2192";
+}
+
+.popular-foods p a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.popular-foods p::before {
+  content: "\2192";
+  right: -40px;
+  font-size: 2em;
+  padding: 0 0 7px;
+  color: #FD6D24;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  z-index: 9;
+}
+
+.popular-foods p::after {
+  content: "";
+  z-index: 8;
+  border-radius: 2px;
+  margin-left: 25px;
+  padding-bottom: 7px;
+  width: 35px;
+  height: 28px;
+  background: #111111;
+}
+
+.popular-foods p:hover::before {
+  right: -45px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .myNavUl {
+    padding-right: 0px !important;
+  }
+  .navbar-collapse {
+    -webkit-box-shadow: 0 4px 10px #ddd;
+            box-shadow: 0 4px 10px #ddd;
+  }
+  .navbar .nav-item {
+    padding: 5px 30px;
+  }
+  .header-title {
+    padding: 40px;
+    margin: 0 auto;
+    position: relative !important;
+  }
+  .header-title h1 {
+    font-size: 2em;
+  }
+}
+/*# sourceMappingURL=style.css.map */
