@@ -195,9 +195,11 @@ html, body {
   background: url(../images/wallpaper.jpg);
   background-position: right;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   border-top-left-radius: 100px;
+  position: relative;
+  height: 90vh;
 }
 
 .header-block {
@@ -258,6 +260,25 @@ html, body {
   right: -45px !important;
 }
 
+@media only screen and (max-width: 992px) and (orientation: landscape) {
+  .header-title {
+    padding: 40px 40px 0 40px;
+  }
+  .header-title h1 {
+    font-size: 3em;
+  }
+  .header-title p {
+    margin-bottom: 0;
+  }
+  .header-title .header-btn {
+    margin: 10px 0;
+    padding: 5px 30px;
+  }
+  .header-image {
+    height: 100vh;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .myNavUl {
     padding-right: 0px !important;
@@ -276,6 +297,9 @@ html, body {
   }
   .header-title h1 {
     font-size: 2em;
+  }
+  .header-image {
+    height: 385px;
   }
 }
 /*# sourceMappingURL=style.css.map */
