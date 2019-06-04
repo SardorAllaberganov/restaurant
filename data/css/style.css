@@ -3,7 +3,22 @@ a {
   text-decoration: none !important;
 }
 
-.popular-foods p, .popular-foods p::before, .popular-foods p::after {
+.contact .mapBody #map {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.footer h5 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.about-block, .popular-foods p.allFoodBtn, .popular-foods p.allFoodBtn::before, .popular-foods p.allFoodBtn::after {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -21,6 +36,7 @@ html, body {
 .navbar {
   width: 100%;
   margin: 0;
+  background: #fff;
   padding: 0;
   height: 70px;
 }
@@ -47,8 +63,8 @@ html, body {
 }
 
 .navbar-collapse {
-  background: #fff;
   z-index: 999;
+  background: #fff;
 }
 
 .navbar-toggler {
@@ -77,6 +93,11 @@ html, body {
   float: right;
 }
 
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .title {
   height: 70px;
   background: #1D191A;
@@ -102,11 +123,60 @@ html, body {
   border-radius: 50%;
 }
 
+.about {
+  padding: 100px 0;
+  position: relative;
+}
+
+.about-block {
+  left: 10%;
+  right: 10%;
+}
+
+.about img {
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 30%;
+}
+
+.about h3 {
+  color: #FD6D24;
+}
+
+.about-btn {
+  position: relative;
+}
+
 .active {
   border-top: 3px solid #FD6D24 !important;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+}
+
+.about-btn, .header-title .header-btn, .booking-block .book-btn, .contact-btn {
+  margin: 30px 0;
+  font-size: 15px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  background: #FD6D24;
+  color: #fff;
+  border-radius: 15px 0 15px 0;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  border: 2px solid transparent;
+}
+
+.about-btn:hover, .header-title .header-btn:hover, .booking-block .book-btn:hover, .contact-btn:hover {
+  border: 2px solid #FD6D24;
+  background: none;
+  color: #FD6D24;
 }
 
 .header {
+  padding-top: 70px;
   position: relative;
 }
 
@@ -167,28 +237,8 @@ html, body {
   color: #666;
 }
 
-.header-title .header-btn {
-  margin: 30px 0;
-  font-size: 15px;
-  padding: 10px 40px;
-  border: none;
-  outline: none;
-  background: #FD6D24;
-  color: #fff;
-  border-radius: 15px 0 15px 0;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  border: 2px solid transparent;
-}
-
 .header-title .header-btn span {
   font-size: 1.5em;
-}
-
-.header-title .header-btn:hover {
-  border: 2px solid #FD6D24;
-  background: none;
-  color: #FD6D24;
 }
 
 .header-image {
@@ -207,8 +257,12 @@ html, body {
 }
 
 .popular-foods {
-  margin-top: 80px;
+  padding: 80px 0;
   position: relative;
+}
+
+.popular-foods h5 {
+  color: #FD6D24;
 }
 
 .popular-foods-title {
@@ -219,22 +273,129 @@ html, body {
   margin-top: 50px;
 }
 
+.popular-foods .food-tabs {
+  margin: 5px 0;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.popular-foods .food-tabs .tabs-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.popular-foods .food-tabs img {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.popular-foods .food-tabs .food-desc {
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  position: absolute;
+  z-index: 3;
+  top: 70%;
+  color: #fff;
+  left: 3%;
+  right: 3%;
+  bottom: 2%;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.popular-foods .food-tabs .food-desc h4 {
+  font-weight: 500;
+}
+
+.popular-foods .food-tabs .food-desc h4, .popular-foods .food-tabs .food-desc p {
+  margin: 5px 0;
+}
+
+.popular-foods .food-tabs .food-desc p {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.popular-foods .food-tabs .food-desc .seeMore {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: absolute;
+  font-size: 14px;
+  opacity: 0;
+  right: 10px;
+  top: 65%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 50px;
+  background: none;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+}
+
+.popular-foods .food-tabs:hover .food-desc {
+  background: #FD6D24;
+}
+
+.popular-foods .food-tabs:hover .seeMore {
+  opacity: 1;
+}
+
+.popular-foods .button-like {
+  width: 40px;
+  height: 40px;
+  background-color: #FD6D24;
+  text-decoration: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 20px;
+  z-index: 2;
+  border: none;
+  color: #fff;
+  outline: none;
+  -webkit-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+}
+
+.popular-foods .button-like .fa {
+  -webkit-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+}
+
+.popular-foods .liked {
+  background: #fff;
+}
+
+.popular-foods .liked .fa {
+  color: #FD6D24;
+}
+
 .popular-foods h1 {
   margin: 30px 0;
   font-weight: bold;
 }
 
-.popular-foods p {
+.popular-foods p.allFoodBtn {
   font-weight: bold;
   background: "\2192";
 }
 
-.popular-foods p a {
+.popular-foods p.allFoodBtn a {
   text-decoration: none;
   color: #222222;
 }
 
-.popular-foods p::before {
+.popular-foods p.allFoodBtn::before {
   content: "\2192";
   right: -40px;
   font-size: 2em;
@@ -245,7 +406,7 @@ html, body {
   z-index: 9;
 }
 
-.popular-foods p::after {
+.popular-foods p.allFoodBtn::after {
   content: "";
   z-index: 8;
   border-radius: 2px;
@@ -256,8 +417,249 @@ html, body {
   background: #111111;
 }
 
-.popular-foods p:hover::before {
+.popular-foods p.allFoodBtn:hover::before {
   right: -45px !important;
+}
+
+.modal-header {
+  background-color: #FD6D24;
+}
+
+.modal-title {
+  color: #fff;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.modal-body h3 {
+  color: #FD6D24;
+}
+
+.modal-body span {
+  color: #FD6D24;
+  font-size: 20px;
+}
+
+.modal-body .commentInputBlock {
+  position: relative;
+}
+
+.modal-body .commentInput {
+  width: 100%;
+  height: 70px;
+  padding: 10px 15px;
+  outline: none;
+  margin: 20px 0;
+  color: #FD6D24;
+  border: 2px solid #FD6D24;
+  border-radius: 10px;
+  resize: none;
+}
+
+.modal-body .commentBtn {
+  border: 2px solid #FD6D24;
+  padding: 10px 20px;
+  letter-spacing: .5px;
+  float: right;
+  color: #FD6D24;
+  background: none;
+  border-radius: 10px;
+}
+
+.modal-body .commentInput::-webkit-input-placeholder {
+  color: #FD6D24;
+}
+
+.modal-body .commentInput:-ms-input-placeholder {
+  color: #FD6D24;
+}
+
+.modal-body .commentInput::-ms-input-placeholder {
+  color: #FD6D24;
+}
+
+.modal-body .commentInput::placeholder {
+  color: #FD6D24;
+}
+
+.modal-body .commentsBlock h4 {
+  color: #FD6D24;
+}
+
+.modal-body .commentsBlock img {
+  width: 40px;
+  margin-right: 20px;
+}
+
+.menu {
+  padding: 100px 0;
+  background-position: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7))), url(../images/aboutBg.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.7)), url(../images/aboutBg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu h3 {
+  color: #FD6D24;
+}
+
+.menu-filter {
+  margin: 40px 0;
+}
+
+.menu-filter #filterOptions {
+  list-style: none;
+}
+
+.menu-filter #filterOptions li {
+  padding: 10px 20px 0 0;
+  display: inline;
+}
+
+.menu-filter #filterOptions li button {
+  outline: none;
+  font-size: 16px;
+  background: none;
+  border: 1px solid transparent;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border-radius: 15px 0 15px 0;
+}
+
+.menu-filter #filterOptions li button:hover {
+  color: #FD6D24;
+}
+
+.menu .activeFood {
+  border: 1px solid #FD6D24 !important;
+  color: #FD6D24;
+}
+
+#ourHolder .card-img {
+  width: 100%;
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#ourHolder .card-title {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+#ourHolder .card-price {
+  color: #FD6D24;
+}
+
+#ourHolder .seeMore {
+  background: none;
+  border: 1px solid #FD6D24;
+  padding: 10px 20px;
+  color: #FD6D24;
+  font-size: 12px;
+  outline: none;
+  border-radius: 15px 0 15px 0;
+}
+
+.booking {
+  padding: 80px 0;
+}
+
+.booking label {
+  color: #444;
+  font-size: 14px;
+}
+
+.booking h5 {
+  color: #FD6D24;
+}
+
+.booking h2 {
+  font-weight: bold;
+}
+
+.booking-block {
+  padding: 20px;
+  -webkit-box-shadow: 0 0 10px #ddd;
+          box-shadow: 0 0 10px #ddd;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.booking-block .book-btn {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 2px solid transparent;
+}
+
+.contact {
+  padding: 100px 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.6))), url(../images/contactBackground.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.6)), url(../images/contactBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contact h4 {
+  color: #FD6D24;
+}
+
+.contact #message {
+  resize: none;
+  height: 100px;
+}
+
+.contact .form-control {
+  border-color: #FD6D24;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.contact .form-control::-webkit-input-placeholder {
+  color: #FD6D24;
+}
+
+.contact .form-control:-ms-input-placeholder {
+  color: #FD6D24;
+}
+
+.contact .form-control::-ms-input-placeholder {
+  color: #FD6D24;
+}
+
+.contact .form-control::placeholder {
+  color: #FD6D24;
+}
+
+.contact-btn {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.contact .mapBody {
+  position: relative;
+  -webkit-box-shadow: 0 0 10px #FD6D24;
+          box-shadow: 0 0 10px #FD6D24;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.footer {
+  height: 80px;
+  background: #FD6D24;
+  position: relative;
+}
+
+.footer h5 {
+  color: #fff;
 }
 
 @media only screen and (max-width: 992px) and (orientation: landscape) {
@@ -280,6 +682,38 @@ html, body {
 }
 
 @media only screen and (max-width: 768px) {
+  .contact {
+    padding: 50px 0 10px;
+  }
+  .navbar-collapse {
+    overflow-y: scroll;
+    max-height: 250px;
+  }
+  .footer h5 {
+    font-size: 1em;
+    width: 70%;
+    text-align: center;
+  }
+  #email, #phone {
+    margin: 10px 0;
+  }
+  .menu-filter #filterOptions li {
+    padding: 5px 0;
+  }
+  .menu {
+    padding: 10px 0;
+  }
+  .about {
+    padding: 80px 0;
+  }
+  .about img {
+    height: 350px;
+  }
+  .about-block {
+    position: relative;
+    left: 0;
+    right: 0;
+  }
   .myNavUl {
     padding-right: 0px !important;
   }
@@ -291,7 +725,7 @@ html, body {
     padding: 5px 30px;
   }
   .header-title {
-    padding: 40px;
+    padding: 60px;
     margin: 0 auto;
     position: relative !important;
   }
@@ -300,6 +734,12 @@ html, body {
   }
   .header-image {
     height: 385px;
+  }
+  .food-desc {
+    background: #FD6D24;
+  }
+  .food-desc .seeMore {
+    opacity: 1 !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

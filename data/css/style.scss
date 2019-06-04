@@ -31,6 +31,7 @@ html,body{
 .navbar{
   width: 100%;
   margin: 0;
+  background: #fff;
   padding: 0;
   height: 70px;
   .myNavUl{
@@ -50,9 +51,8 @@ html,body{
     }
   }
   &-collapse{
-    background: #fff;
     z-index: 999;
-    
+    background: #fff;
   }
   &-toggler{
     width: 70px;
@@ -77,6 +77,12 @@ html,body{
     }
   }
 }
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .title{
   height: 70px;
   background: #1D191A;
@@ -99,10 +105,55 @@ html,body{
   }
 }
 
+.about{
+  padding: 100px 0;
+  position: relative;
+  &-block{
+    @extend %verticalCentered;
+    left: 10%;
+    // border: 1px solid red;
+    right: 10%;
+  }
+  img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-top-left-radius: 30%;
+  }
+  h3{
+    color: $mainColor;
+  }
+  &-btn{
+    position: relative;
+    @extend %shared-button;
+  }
+}
+
 .active{
   border-top: 3px solid $mainColor!important;
+  transition: all .6s;
 }
+
+%shared-button{
+  margin: 30px 0;
+  font-size: 15px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  background: $mainColor;
+  color: #fff;
+  border-radius: 15px 0 15px 0;
+  transition: all .2s;
+  border: 2px solid transparent;
+  &:hover{
+    border: 2px solid $mainColor;
+    background: none;
+    color: $mainColor;
+  }
+}
+
 .header{
+  padding-top: 70px;
   position: relative;
   .social-block{
     position: absolute;
@@ -153,24 +204,10 @@ html,body{
       color: #666;
     }
     .header-btn{
-      margin: 30px 0;
-      font-size: 15px;
-      padding: 10px 40px;
-      border: none;
-      outline: none;
-      background: $mainColor;
-      color: #fff;
-      border-radius: 15px 0 15px 0;
-      transition: all .2s;
-      border: 2px solid transparent;
       span{
         font-size: 1.5em;
       }
-      &:hover{
-        border: 2px solid $mainColor;
-        background: none;
-        color: $mainColor;
-      }
+      @extend %shared-button;
     }
   }
   &-image{
@@ -188,7 +225,10 @@ html,body{
   }
 }
 .popular-foods{
-  margin-top: 80px;
+  h5{
+    color: $mainColor;
+  }
+  padding: 80px 0;
   position: relative;
   &-title{
     color: $mainColor;
@@ -196,11 +236,105 @@ html,body{
   &-tabs{
     margin-top: 50px;
   }
+  .food-tabs{
+    margin: 5px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    .tabs-overlay{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: .4);
+      z-index: 1;
+    }
+    img{
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+    .food-desc{
+      transition: all .3s;
+      position: absolute;
+      z-index: 3;
+      top: 70%;
+      color: #fff;
+      left: 3%;
+      right: 3%;
+      bottom: 2%;
+      padding: 15px;
+      border-radius: 10px;
+      h4{
+        font-weight: 500;
+      }
+      h4,p{
+        margin: 5px 0;
+      }
+      p{
+        font-size: 14px;
+        font-weight: 300;
+      }
+      .seeMore{
+        transition: all .2s;
+        position: absolute;
+        font-size: 14px;
+        opacity: 0;
+        right: 10px;
+        top: 65%;
+        transform: translateY(-50%);
+        border-radius: 50px;
+        background: none;
+        color: #fff;
+        border: none;
+        outline: none;
+        padding: 5px 10px;
+      }
+    }
+    &:hover .food-desc{
+      background: $mainColor;
+    }
+    &:hover .seeMore {
+      opacity: 1;
+    }
+  }
+
+  .button-like {
+    width: 40px;
+    height: 40px;
+    background-color: $mainColor;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 20px;
+    // text-shadow: 0 0 10px #000;
+    z-index: 2;
+    border: none;
+    color: #fff;
+    outline: none;
+    transition: all ease 0.4s;
+  
+    .fa{
+      transition: all ease 0.4s;
+    }
+  }
+  
+  .liked {
+    background: #fff;
+    .fa{
+      color: $mainColor;
+    }
+  }
+  
+  
+
   h1{
     margin: 30px 0;
     font-weight: bold;
   }
-  p{
+  p.allFoodBtn{
     font-weight: bold;
     background: "\2192";
     @extend %verticalCentered;
@@ -233,6 +367,201 @@ html,body{
     &:hover::before{
       right: -45px!important;
     }
+  }
+}
+
+.modal{
+  &-header{
+    background-color: $mainColor;
+  }
+  &-title{
+    color: #fff;
+  }
+  img{
+    width: 100%;
+    border-radius: 5px;
+  }
+  &-body{
+    h3{
+      color: $mainColor;
+    }
+    span{
+      color: $mainColor;
+      font-size: 20px;
+    }
+    .commentInputBlock{
+      position: relative;
+    }
+    .commentInput{
+      width: 100%;
+      height: 70px;
+      padding: 10px 15px;
+      outline: none;
+      margin: 20px 0;
+      color: $mainColor;
+      border: 2px solid $mainColor;
+      border-radius: 10px;
+      resize: none;
+    }
+    .commentBtn{
+      border: 2px solid $mainColor;
+      padding: 10px 20px;
+      letter-spacing: .5px;
+      float: right;
+      color: $mainColor;
+      background: none;
+      border-radius: 10px;
+    }
+    .commentInput::placeholder{
+      color: $mainColor;
+    }
+    .commentsBlock{
+      h4{
+        color: $mainColor;
+      }
+      img{
+        width: 40px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+
+.menu{
+  padding: 100px 0;
+  background-position: center;
+  background: linear-gradient(rgba($color: #fff, $alpha: .7)), url(../images/aboutBg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h3{
+    color: $mainColor;
+  }
+  &-filter{
+    margin: 40px 0;
+    #filterOptions{
+      list-style: none;
+      li{
+        padding: 10px 20px 0 0;
+        display: inline;
+        button{
+          outline: none;
+          font-size: 16px;
+          background: none;
+          border: 1px solid transparent;
+          font-weight: 500;
+          letter-spacing: 1px;
+          padding: 8px 20px;
+          border-radius: 15px 0 15px 0;
+          &:hover{
+            color: $mainColor;
+          }
+        }
+      }
+    }
+  }
+  .activeFood{
+    border: 1px solid $mainColor!important;
+    color: $mainColor;
+  }
+}
+
+#ourHolder{
+  .card-img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .card-title{
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .card-price{
+    color: $mainColor;
+  }
+  .seeMore{
+    background: none;
+    border: 1px solid $mainColor;
+    padding: 10px 20px;
+    color: $mainColor;
+    font-size: 12px;
+    outline: none;
+    border-radius: 15px 0 15px 0;
+  }
+}
+
+.booking{
+  padding: 80px 0;
+  label{
+    color: #444;
+    font-size: 14px;
+  }
+  h5{
+    color: $mainColor;
+  }
+  h2{
+    font-weight: bold
+  }
+  &-block{
+    padding: 20px;
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 5px;
+    background: rgba($color: #fff, $alpha: .4);
+    .book-btn{
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 2px solid transparent;
+      @extend %shared-button;
+    }
+  }
+}
+
+.contact{
+  padding: 100px 0;
+  background: linear-gradient(rgba($color: #fff, $alpha: .6)), url(../images/contactBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  h4{
+    color: $mainColor;
+  }
+  #message{
+    resize: none;
+    height: 100px;
+  }
+  .form-control{
+    border-color: $mainColor;
+    background: rgba($color: #fff, $alpha: .4);
+  }
+  .form-control::placeholder{
+    color: $mainColor;
+  }
+  &-btn{
+    @extend %shared-button;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mapBody{
+    position: relative;
+    box-shadow: 0 0 10px $mainColor;
+    border-radius: 10px;
+    overflow: hidden;
+    #map{
+      @extend %horizontalCentered
+    }
+  }
+  
+}
+
+
+.footer{
+  height: 80px;
+  background: $mainColor;
+  position: relative;
+  h5{
+    @extend %centered;
+    color: #fff;
   }
 }
 
@@ -273,9 +602,45 @@ html,body{
       height: 100vh;
     }
   }
+  
 }
 
+
 @include mediaMaxWidthWithoutOrient(768px){
+  .contact{
+    padding: 50px 0 10px;
+  }
+  .navbar-collapse{
+    overflow-y: scroll;
+    max-height: 250px;
+  }
+  .footer{
+    h5{
+      font-size: 1em;
+      width: 70%;
+      text-align: center;
+    }
+  }
+  #email,#phone{
+    margin: 10px 0;
+  }
+  .menu-filter #filterOptions li{
+    padding: 5px 0;
+  }
+  .menu{
+    padding: 10px 0;
+  }
+  .about{
+    padding: 80px 0;
+    img{
+      height: 350px;
+    }
+  }
+  .about-block{
+    position: relative;
+    left: 0;
+    right: 0;
+  }
   .myNavUl{
     padding-right: 0px!important;
   }
@@ -286,7 +651,7 @@ html,body{
     padding: 5px 30px;
   }
   .header-title{
-    padding: 40px;
+    padding: 60px;
     margin: 0 auto;
     position: relative!important;
     h1{
@@ -295,5 +660,11 @@ html,body{
   }
   .header-image{
     height: 385px;
+  }
+  .food-desc{
+    background: $mainColor;
+    .seeMore{
+      opacity: 1!important;
+    }
   }
 }

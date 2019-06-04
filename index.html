@@ -15,13 +15,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 
   <link rel="stylesheet" href="data/css/style.css">
 </head>
 <body>
   <div class="container-fluid">
     <div class="row">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
         <div class="title"> 
           <a class="" href="#">
@@ -39,35 +40,38 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav myNavUl ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#header">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="food.html">Food</a>
+              <a class="nav-link" href="#food">Food</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="menu.html">Menu</a>
+              <a class="nav-link" href="#about">about us</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="about.html">about us</a>
+              <a class="nav-link" href="#menu">Menu</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">contact</a>
+              <a class="nav-link" href="#book">Book</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">contact</a>
             </li>
           </ul>
         </div> 
       </nav>
     </div>
 
-
-   <div class="row header">
+    <!-- header -->
+    <div class="row header" id="header">
       <div class="col-md-6 col-sm-6">
         <div class="row">
           <div class="header-title">
             <div class="header-block">
               <h1>Choosing <br> quality food.</h1>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, optio. </p>
-              <button type="button" class="header-btn">Explore All <span>&#8250;</span></button>
+              <a class="header-btn" href='#food'>Explore All <span>&#8250;</span></a>
             </div>
           </div>
         </div>
@@ -81,41 +85,306 @@
       </div>
       <div class="col-md-6 col-sm-6">
         <div class="row">
-          <div class="header-image">
-          </div>
+          <div class="header-image"></div>
         </div>
       </div>
     </div>
-    <div class="row popular-foods">
-      <div class="col-md-12">
-        <div class="col-md-8 offset-md-2">
+
+
+    <!-- popular food section -->
+    <div class="row popular-foods" id="food">
+      <div class="col-md-12 nopadding">
+        <div class="col-md-10 offset-md-1">
           <div class="row">
             <div class="col-md-9">
               <h5 class="popular-foods-title">Discover</h5>
               <h1>Our Featured Food</h1>
             </div>
             <div class="col-md-3">
-              <p><a href=""> See All Foods</p></a> 
+              <p class="allFoodBtn"><a href="#menu"> See All Foods</p></a> 
             </div>
           </div>
           <div class="row popular-foods-tabs">
             <div class="col-md-6">
+              <h5>Popular foods</h5>
               <div class="row">
-                <div class="col-md-6">
-                  asfasfas
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="food-tabs">
+                    <div class="tabs-overlay"></div>
+                    <img src="data/images/food1.jpg" alt="">
+                    <button class="button-like">
+                      <i class="fa fa-heart"></i>
+                    </button>
+                    <div class="food-desc">
+                      <h4 class="food-name">Kebab</h4>
+                      <p class="food-type">Uzbek food</p>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  asfsafasfsa
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="food-tabs">
+                    <div class="tabs-overlay"></div>
+                    <img src="data/images/food2.jpg" alt="">
+                    <button class="button-like">
+                      <i class="fa fa-heart"></i>
+                    </button>
+                    <div class="food-desc">
+                      <h4 class="food-name">Palov</h4>
+                      <p class="food-type">Uzbek food</p>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
+              <h5>Popular salad</h5>
               <div class="row">
-                <div class="col-md-6">
-                  asfasfsa
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="food-tabs">
+                    <div class="tabs-overlay"></div>
+                    <img src="data/images/salad1.jpg" alt="">
+                    <button class="button-like">
+                      <i class="fa fa-heart"></i>
+                    </button>
+                    <div class="food-desc">
+                      <h4 class="food-name">Salad</h4>
+                      <p class="food-type">Korean salad</p>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  asfsafs
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="food-tabs">
+                    <div class="tabs-overlay"></div>
+                    <img src="data/images/salad2.jpeg" alt="">
+                    <button class="button-like">
+                      <i class="fa fa-heart"></i>
+                    </button>
+                    <div class="food-desc">
+                      <h4 class="food-name">Salad</h4>
+                      <p class="food-type">Turkish salad</p>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row popular-foods-tabs">
+              <div class="col-md-6">
+                <h5>Popular snacks</h5>
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="food-tabs">
+                      <div class="tabs-overlay"></div>
+                      <img src="data/images/snack1.jpg" alt="">
+                      <button class="button-like">
+                        <i class="fa fa-heart"></i>
+                      </button>
+                      <div class="food-desc">
+                        <h4 class="food-name">Pizza</h4>
+                        <p class="food-type">Italian food</p>
+                        <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="food-tabs">
+                      <div class="tabs-overlay"></div>
+                      <img src="data/images/snack2.jpg" alt="">
+                      <button class="button-like">
+                        <i class="fa fa-heart"></i>
+                      </button>
+                      <div class="food-desc">
+                        <h4 class="food-name">Fries</h4>
+                        <p class="food-type">French food</p>
+                        <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <h5>Popular desserts</h5>
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="food-tabs">
+                      <div class="tabs-overlay"></div>
+                      <img src="data/images/dessert1.jpg" alt="">
+                      <button class="button-like">
+                        <i class="fa fa-heart"></i>
+                      </button>
+                      <div class="food-desc">
+                        <h4 class="food-name">Dessert</h4>
+                        <p class="food-type">Thai food</p>
+                        <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="food-tabs">
+                      <div class="tabs-overlay"></div>
+                      <img src="data/images/dessert2.jpg" alt="">
+                      <button class="button-like">
+                        <i class="fa fa-heart"></i>
+                      </button>
+                      <div class="food-desc">
+                        <h4 class="food-name">Silk Brownies</h4>
+                        <p class="food-type">French food</p>
+                        <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">Read more...</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about section -->
+    <div class="row about" id="about">
+      <div class="col-md-9 offset-md-1">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="data/images/about.jpg" alt="about-img">
+          </div>
+          <div class="col-md-6">
+            <div class="about-block">
+              <h3 class="my-4">Welcome</h3>
+              <h1 class="mb-5">
+                <strong>About <br> Restaurant booking </strong>
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Accusamus non deserunt asperiores harum cupiditate perferendis nisi id dicta sed commodi 
+                eaque nemo veniam suscipit, sit reiciendis ab, excepturi quo iure!Pariatur voluptatibus non 
+              </p>
+              <p class="my-5">
+                <a class="about-btn" href='#menu'>Explore All <span>&#8250;</span></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- menu section -->
+    <div class="row menu" id="menu">
+      <div class="col-md-10 offset-md-1">
+        <h3 class="text-center">Menu</h3>
+        <div class="menu-filter d-flex justify-content-center">
+          <ul id="filterOptions">
+            <li><button type="button" class="all activeFood">All</a></li>
+            <li><button type="button" class="food">Food</a></li>
+            <li><button type="button" class="salad">Salad</a></li>
+            <li><button type="button" class="snack">Snack</a></li>
+            <li><button type="button" class="dessert">Dessert</a></li>
+          </ul>
+        </div>
+        <div id="ourHolder">
+          <div class="row">
+            <div class="item food col-md-4 col-sm-4 col-xs-4">
+              <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="data/images/food1.jpg" class="card-img">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <h5 class="card-title mb-3">Osh</h5>
+                      <p class="card-text">Uzbek food</p>
+                      <h4 class="my-4 card-price">15000 sum</h4>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">See more</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item salad col-md-4 col-sm-4 col-xs-4">
+              <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="data/images/salad1.jpg" class="card-img">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <h5 class="card-title mb-3">Salad</h5>
+                      <p class="card-text">Uzbek food</p>
+                      <h4 class="my-4 card-price">15000 sum</h4>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">See more</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item snack col-md-4 col-sm-4 col-xs-4">
+              <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="data/images/snack1.jpg" class="card-img">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <h5 class="card-title mb-3">Pizza</h5>
+                      <p class="card-text">Uzbek food</p>
+                      <h4 class="my-4 card-price">15000 sum</h4>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">See more</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item dessert col-md-4 col-sm-4 col-xs-4">
+                <div class="card mb-3">
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="data/images/dessert1.jpg" class="card-img">
+                    </div>
+                    <div class="col-md-7">
+                      <div class="card-body">
+                        <h5 class="card-title mb-3">Dessert</h5>
+                        <p class="card-text">Uzbek food</p>
+                        <h4 class="my-4 card-price">15000 sum</h4>
+                        <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">See more</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="item salad col-md-4 col-sm-4 col-xs-4">
+              <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="data/images/salad1.jpg" class="card-img">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <h5 class="card-title mb-3">Salad</h5>
+                      <p class="card-text">Uzbek food</p>
+                      <h4 class="my-4 card-price">15000 sum</h4>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">See more</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item dessert col-md-4 col-sm-4 col-xs-4">
+              <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="data/images/dessert2.jpg" class="card-img">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <h5 class="card-title mb-3">Dessert</h5>
+                      <p class="card-text">Uzbek food</p>
+                      <h4 class="my-4 card-price">15000 sum</h4>
+                      <button type="button" data-toggle="modal" data-target="#myModal" class="seeMore">See more</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,8 +392,154 @@
         </div>
       </div>
     </div>
+
+    <!-- booking section -->
+    <div class="row booking" id="book">
+      <div class="col-md-8 offset-md-2">
+        <div class="booking-block">
+          <h5 class="text-center my-3">Table</h5>
+          <h2 class="text-center my-4">Book A Table</h2>
+          <form action="">
+            <div class="col-md-8 offset-md-2 my-5">
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 my-3">
+                  <label for="date">Date <i class="fas fa-angle-down"></i></label>
+                  <input type="text" class="form-control" id="date"  data-inputmask="'alias': 'date'" name="date" required>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 my-3">
+                  <label for="time">Time <i class="fas fa-angle-down"></i></label>
+                  <input type="text" class="form-control" id="endTime" placeholder="12:00" name="time" required>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 my-3">
+                  <label for="guests">Guests <i class="fas fa-angle-down"></i></label>
+                  <input type="text" class="form-control" id="guests" placeholder="Guest number" name="guests" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="book-btn mt-5" type="submit">Check availability</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact us section -->
+    <div class="row contact" id="contact">
+      <div class="col-md-12">
+        <h4 class="text-center">Get in Touch</h4>
+        <h2 class="text-center my-3">You can send us a message</h2>
+        <form action="">
+        <div class="row mt-5">
+          <div class="col-md-4 offset-md-2">
+              <input type="text" class="form-control" required placeholder="Enter name">
+            <div class="row my-3">
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <input type="email" class="form-control" id="email" required placeholder="Email">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <input type="phone" class="form-control" id="phone" required placeholder="Phone number">
+              </div>
+            </div>
+            <div class="my-3">
+              <textarea name="" id="message" class="form-control" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <div class="col-md-4 offset-xs-1">
+            <div class="mapBody" style="height: 210px;">
+                <div id="map" style="height: 100%; width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row my-3">
+            <button type="submit" class="contact-btn">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
+  <footer class="footer">
+    <h5>© Copyright 2019 Tashkent, Inha University</h5>
+  </footer>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Palov</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <img src="data/images/food2.jpg" alt="">
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <h3>Palov</h3>
+                  <p>Uzbek cuisine</p>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <span><i class="fa fa-heart"></i> 159 people liked it</span>
+                </div>
+              </div>
+              <p>Ingredients:</p>
+              <p>Fat fat, sunflower oil, lamb and beef meat, rice, onions, carrots, peas, raisins, spices.</p>
+              <h3 class="text-right m-3">15000 sum</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 commentInputBlock">
+              <form action="">
+                <textarea class="commentInput" name="" id="" placeholder="Leave your comment"></textarea>
+                <button class="commentBtn">Comment</button>
+              </form>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-md-12 commentsBlock">
+              <h4 class="mb-3">Comments:</h4>
+              <div class="row m-3">
+                <div class="col-xs-3">
+                    <img src="data/images/user.png" alt="">
+                </div>
+                <div class="col-xs-9">
+                  <h5 class="my-2"> Name Surname</h5>
+                  <p class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+              </div>
+              <div class="row m-3">
+                  <div class="col-xs-3">
+                      <img src="data/images/user.png" alt="">
+                  </div>
+                  <div class="col-xs-9">
+                    <h5 class="my-2"> Name Surname</h5>
+                    <p class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script src="data/js/index.js"></script>
 </body>
 </html>
